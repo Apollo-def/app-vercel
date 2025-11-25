@@ -1,0 +1,114 @@
+/* Variáveis de tema para facilitar manutenção */
+:root{
+  --bg: #282c34;
+  --text: #ffffff;
+  --muted: #888888;
+  --accent: #646cff;
+  --accent-react: #61dafb;
+  --card-bg: rgba(255,255,255,0.04);
+  --max-width: 1280px;
+  --page-padding: 2rem;
+  --radius: 8px;
+}
+
+/* Reset / base acessível
+   - Fontes com fallback
+   - Suavização para melhor renderização */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.4;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Container principal do app
+   - centraliza o conteúdo e limita largura */
+#root {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--page-padding);
+  text-align: center;
+}
+
+/* Classe usada no markup (<main class="container">)
+   - garante espaçamento consistente dentro da página */
+.container {
+  padding: calc(var(--page-padding) / 2);
+}
+
+/* Logo / ícone interativo
+   - will-change para performance
+   - transição suave no filtro ao passar o mouse */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em var(--accent)aa);
+}
+/* Variante específica para logo react (se aplicada) */
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em var(--accent-react)aa);
+}
+
+/* Animação de rotação da logo (usada condicionalmente abaixo) */
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Respeita preferência por reduzir animações:
+   - só anima quando o usuário não pediu redução */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Cartões / seções com destaque
+   - fundo leve, borda arredondada e sombra sutil */
+.card {
+  padding: 2em;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  margin: 1rem 0;
+  text-align: left;
+}
+
+/* Links e texto de documentação com cor mais suave */
+.read-the-docs {
+  color: var(--muted);
+}
+
+/* Foco acessível para elementos interativos (teclado) */
+a:focus,
+button:focus {
+  outline: 3px solid rgba(100,108,255,0.22);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Classe utilitária para esconder visualmente mas manter para leitores de tela */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* Ajustes responsivos simples */
+@media (max-width: 600px) {
+  .logo { height: 4.5em; padding: 1rem; }
+  .card { padding: 1rem; }
+}

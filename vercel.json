@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      },
+      "_comment": "This section defines the build configuration; using static build with build directory as output"
+    }
+  ],
+  "_comment": "Vercel configuration file with build and routing settings"
+}
+
